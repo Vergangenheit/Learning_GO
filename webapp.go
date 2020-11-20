@@ -53,7 +53,7 @@ func newsAggHandler(w http.ResponseWriter, r *http.Request) {
 	news_map := make(map[string]NewsMap)
 
 	for _, Location := range s.Locations {
-		resp, _ := http.Get(Location.Loc)
+		resp, _ := http.Get(Location)
 		bytes, _ := ioutil.ReadAll(resp.Body)
 		xml.Unmarshal(bytes, &n)
 
